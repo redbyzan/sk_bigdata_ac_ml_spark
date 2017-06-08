@@ -16,7 +16,7 @@ import org.apache.spark.mllib.linalg.Vectors
 
 
 // breast-cancer
-val data2 = MLUtils.loadLibSVMFile(sc, "/Users/freeman/programming/spark/data/mllib/breast-cancer_scale")
+val data2 = MLUtils.loadLibSVMFile(sc, "data/mllib/breast-cancer_scale")
 val data = data2.map{lp => var labelp = None: Option[LabeledPoint]; if (lp.label == 2.0) labelp = Some(LabeledPoint(0.0, lp.features))	else if (lp.label == 4.0) labelp = Some(LabeledPoint(1.0, lp.features)); labelp.get }
 
 
@@ -24,7 +24,7 @@ val data = data2.map{lp => var labelp = None: Option[LabeledPoint]; if (lp.label
 
 
 // Adult (a9a)
-val data2 = MLUtils.loadLibSVMFile(sc, "/Users/freeman/programming/spark/data/mllib/a9a")
+val data2 = MLUtils.loadLibSVMFile(sc, "data/mllib/a9a")
 val data = data2.map{lp => var labelp = None: Option[LabeledPoint]; if (lp.label == -1.0) labelp = Some(LabeledPoint(0.0, lp.features))	else if (lp.label == +1.0) labelp = Some(LabeledPoint(1.0, lp.features)); labelp.get }
 
 
