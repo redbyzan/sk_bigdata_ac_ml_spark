@@ -67,7 +67,7 @@ val train2 = train.na.fill(avg_age, Seq("Age"))
 
 
 // what about "" (empty string).. just use udf
-val replaceEmpty = sqlContext.udf.register("replaceEmpty", (embarked: String) => {if (embarked  == "") "S" else embarked })
+val replaceEmpty = sqlContext.udf.register("replaceEmpty", (embarked: String) => {if (embarked  == null) "S" else embarked })
 val train3 = train2.withColumn("Embarked", replaceEmpty(train2("Embarked")))
 
 // check the result
